@@ -1,70 +1,63 @@
-let testimonials = [
-  {
-    author: "Amir Mahmud",
-    rating: 5,
-    caption: "Keren Banget",
-    image: "my-img.jpg",
-  },
+function fetchTestimonials() {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
 
-  {
-    author: "Ajo",
-    rating: 4,
-    caption: "Keren Banget Bang",
-    image: "coding.jpg",
-  },
-  {
-    author: "Hamdan",
-    rating: 3,
-    caption: "mayan",
-    image: "my-img.jpg",
-  },
-  {
-    author: "Amir Hooh Tenan",
-    rating: 4,
-    caption: "Keren Banget",
-    image: "Foto Profil.jpg",
-  },
-  {
-    author: "Amir Han",
-    rating: 5,
-    caption: "Keren Banget",
-    image: "my-img.jpg",
-  },
-];
+    xhr.open("GET", "https://api.npoint.io/37b03059009dda95802a", true);
+
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        // console.log("Response :", response);
+
+        resolve(response.testimonials);
+      } else {
+        // console.error("Error :", xhr.status);
+        reject("Error :", xhr.status);
+      }
+    };
+    xhr.onerror = () => reject("network error");
+
+    xhr.send();
+  });
+}
 
 const testimonialsContainer = document.getElementById("testimonialsContainer");
 
-const testimonialsHTML = (daftarTestimoni) => {
-  return daftarTestimoni
+const testimonialsHTML = (array) => {
+  return array
     .map(
       (testimonial) => `
-            <article>
-          <img src="img/${testimonial.image}" alt="testimonialImage">
-          <p class="testimonial-item-caption">
-            <i>${testimonial.caption}</i>
-          </p>
-          <p style="text-align: right;">${testimonial.author}</p>
-          <p style="text-align: right;  font-weight: bold;">${testimonial.rating}★</p>
-        </article>`
+        <article>
+          <img src="${testimonial.image}" alt="testimonial-image" />
+          <p class="testimonial-item-caption">"${testimonial.caption}"</p>
+          <p style="text-align: right">- ${testimonial.author}</p>
+          <p style="text-align: right; font-weight: bold">${testimonial.rating}★</p>
+        </article>
+        `
     )
     .join("");
 };
 
-function showAllTestimonials() {
+async function showAllTestimonials() {
+  const testimonials = await fetchTestimonials();
+  console.log(testimonials);
   testimonialsContainer.innerHTML = testimonialsHTML(testimonials);
 }
+
 showAllTestimonials();
 
-function filterTestimonialByStar(rating) {
+async function filterTestimonialsByStar(rating) {
+  const testimonials = await fetchTestimonials();
+
   const filteredTestimonials = testimonials.filter(
     (testimonial) => testimonial.rating === rating
   );
 
+  console.log(filteredTestimonials);
 
-  if ( filteredTestimonials.length === 0) {
-    return (testimonialsContainer.innerHTML =  `<p>No Testimonials.</p>`);
+  if (filteredTestimonials.length === 0) {
+    return (testimonialsContainer.innerHTML = `<p>No testimonials.</p>`);
   }
-    
-    testimonialsContainer.innerHTML = testimonialsHTML(filteredTestimonials);
 
+  testimonialsContainer.innerHTML = testimonialsHTML(filteredTestimonials);
 }
