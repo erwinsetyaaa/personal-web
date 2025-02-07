@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Web</title>
+    <link rel="icon" href="https://dumbways.id/assets/images/brandred.png" />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="main-menu">
+        <ul class="navbar-links">
+          <img
+            src="https://dumbways.id/assets/images/brandred.png"
+            alt="logo"
+          />
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="blog.html">Blog</a>
+          </li>
+          <li>
+            <a href="testimonials.html">Testimonials</a>
+          </li>
+        </ul>
+        <a class="nav-contact-button" href="contact.html">Contact Me</a>
+      </div>
+      <div class="mobile-menu">
+        <img src="img/logo.png" alt="" />
+
+        <button id="hamburger-button" class="hamburger-icon">☰</button>
+      </div>
+    </nav>
+    <div id="mobile-menu-list" class="mobile-menu-list mobile-menu-hide">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="contact.html" class="menu-active">Contact Me</a>
+    </div>
+
+    <form class="contact-form" onsubmit="submitForm(event)">
+      <h1>Contact Me!</h1>
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Insert Name" required />
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input id="email" type="text" placeholder="Insert Email" required />
+      </div>
+
+      <div class="form-field">
+        <label for="subject">Subject</label>
+        <input id="subject" type="text" placeholder="Insert Subject" required />
+      </div>
+
+      <div class="form-field">
+        <label for="skill">Skill</label>
+        <select name="" id="skill" required>
+          <option value="">Select Any Skill</option>
+          <option value="backend">Backend</option>
+          <option value="fullstack">Fullstack</option>
+          <option value="frontend">Frontend</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="message"> Message</label>
+        <textarea name="" id="message" required> </textarea>
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    <script src="js/contact-form.js"></script>
+    <script src="js/navbar.js"></script>
+  </body>
+</html>
