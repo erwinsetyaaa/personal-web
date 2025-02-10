@@ -29,16 +29,22 @@ body {
   border-collapse: collapse;
   width: 100%;
 }
-.container table tr th {
+/* .container table tr th {
   border-style: solid;
 }
 .container table tr td {
   border-style: solid;
   text-align: center;
-}
+} */
+
+/* NAVBAR */
 nav {
   background-color: #eaeaea;
   padding: 2px 40px;
+}
+.btn-orangered {
+  background-color: lightgreen !important ;
+  color: white !important;
 }
 .hamburger-icon {
   font-size: 36px;
@@ -248,8 +254,6 @@ textarea {
 .blog-detail img {
   width: 100%;
 }
-
-
 
 @media screen and (max-width: 768px) {
   nav {
