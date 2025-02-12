@@ -1,0 +1,39 @@
+{{#> layout currentPage="Contact"}}
+
+    <form class="contact-form" onsubmit="submitForm(event)">
+      <h1>Contact Me!</h1>
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Insert Name" required />
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input id="email" type="text" placeholder="Insert Email" required />
+      </div>
+
+      <div class="form-field">
+        <label for="subject">Subject</label>
+        <input id="subject" type="text" placeholder="Insert Subject" required />
+      </div>
+
+      <div class="form-field">
+        <label for="skill">Skill</label>
+        <select name="" id="skill" required>
+          <option value="">Select Any Skill</option>
+          <option value="backend">Backend</option>
+          <option value="fullstack">Fullstack</option>
+          <option value="frontend">Frontend</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="message"> Message</label>
+        <textarea name="" id="message" required> </textarea>
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+    {{/layout}}

@@ -1,0 +1,34 @@
+{{#> layout currentPage="Testimonials"}}
+
+    <!-- MAIN CONTENT TESTIMONIALS -->
+
+    <main>
+      <h1 style="text-align: center">My Testimonials !</h1>
+      <h3 style="text-align: center">Rating by Star</h3>
+
+      <!-- START BUTTON -->
+      <div class="testimonial-star-button">
+        <button onclick="showAllTestimonials()">All</button>
+        <button onclick="filterTestimonialByStar(1)">1★</button>
+        <button onclick="filterTestimonialByStar(2)">2★</button>
+        <button onclick="filterTestimonialByStar(3)">3★</button>
+        <button onclick="filterTestimonialByStar(3)">4★</button>
+        <button onclick="filterTestimonialByStar(5)">5★</button>
+      </div>
+
+      <!-- TESTIMONIAL LIST -->
+
+      <div id="testimonialsContainer" class="testimonial-list">
+        <article>
+          <img src="img/coding.jpg" alt="testimonialImage" />
+          <p class="testimonial-item-caption">
+            <i>"Keren Banget Web nya"</i>
+          </p>
+          <p style="text-align: right">Erwin Setya Pambudi</p>
+          <p style="text-align: right; font-weight: bold">5★</p>
+        </article>
+      </div>
+    </main>
+    <script src="/js/testimonials.js"></script>
+
+    {{/layout}}
