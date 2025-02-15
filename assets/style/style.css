@@ -9,7 +9,7 @@ body {
 #card-section {
   flex: 1;
 }
-.container {
+.profile-card {
   border: 1px solid #aaa;
   border-radius: 15px;
   width: 400px;
@@ -17,14 +17,14 @@ body {
 
   box-shadow: 5px 10px 18px #aaaaaa;
 }
-.container h1 {
+.profile-card h1 {
   color: limegreen;
 }
-.container img {
+.profile-card img {
   width: 100%;
   border-radius: 15px;
 }
-.container table {
+.profile-card table {
   border-style: solid;
   border-collapse: collapse;
   width: 100%;
