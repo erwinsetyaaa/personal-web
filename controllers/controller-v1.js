@@ -39,7 +39,7 @@ async function renderBlog(req, res) {
 }
 async function renderBlogDetail(req, res) {
   const id = req.params.id;
-  const query = 'SELECT * FROM "Blogs" WHERE id = $(id)';
+  const query = `SELECT * FROM "Blogs" WHERE id = ${id}`;
 
   const blogYangDipilih = await sequelize.query(query, {
     type: QueryTypes.SELECT,
@@ -105,7 +105,7 @@ async function renderBlogEdit(req, res) {
 
 async function deleteBlog(req, res) {
   const id = req.params.id;
-  const query = 'DELETE FROM "Blogs" WHERE id = ${id}';
+  const query = `DELETE FROM "Blogs" WHERE id = ${id}`;
 
   const deleteResult = await sequelize.query(query, {
     type: QueryTypes.DELETE,
