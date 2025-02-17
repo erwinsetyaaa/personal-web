@@ -28,11 +28,11 @@
           <a href="/blog/{{this.id}}" style="text-decoration: none">
             <h1 class="blog-item-title">{{this.title}}</h1>
           </a>
-          <p>{{formatDateToWIB this.createdAt}} | {{this.author}} </p>
+          <p>{{formatDateToWIB this.updatedAt}} | Erwin Setya Pambudi </p>
           <p>
             {{this.content}}
           </p>
-          <p class="blog-item-relative-time">{{getRelativeTime this.createdAt}}</p>
+          <p class="blog-item-relative-time">{{getRelativeTime this.updatedAt}}</p>
         </div>
       </article>
 
