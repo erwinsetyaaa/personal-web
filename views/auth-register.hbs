@@ -1,0 +1,38 @@
+{{#> layout currentPage="Register"}}
+    <!-- Register -->
+    <form id="register-form" action="/register" method="post" class="auth-form" >
+      
+      <h1 class="mb-5">Form Register</h1>
+
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input name="name" id="name" type="text" placeholder="Insert name" required />
+      </div>
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input name="email" id="email" type="email" placeholder="Insert email" required />
+      </div>
+      <div class="form-field">
+        <label for="password">Password</label>
+        <input name="password" id="password" type="password" placeholder="Insert password" required />
+      </div>
+      <div class="form-field">
+        <label for="confirmPassword">Confirm Password</label>
+        <input name="confirmPassword" id="confirmPassword" type="password" placeholder="Insert Confirm Password" required />
+      </div>
+
+      {{#if messages.error}}
+      <div class="alert alert-danger" role="alert">
+      {{messages.error}}
+    </div>
+    {{/if}}
+      
+      <div class="text-center mt-4">
+        <button type="submit">Register</button>
+      </div>
+    </form>
+    <script src="/js/blog.js"></script>
+
+    {{/layout}}
+
+    

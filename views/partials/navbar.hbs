@@ -42,7 +42,14 @@
               " href="/testimonials">Testimonials</a>
             </li>
           </ul>
-          <a class="btn btn-danger" href="/contact">Contact Me</a>
+          <div>
+            {{#if user}}
+            <span class="me-3 ">Selamat Datang, {{user.name}}</span>
+             <a href="/logout"  class="me-3 btn btn-warning">Logout</a>
+            {{/if}}
+           
+           <a class="btn btn-danger" href="/contact">Contact Me</a>
+          </div>
         </div>
       </div>
     </nav>

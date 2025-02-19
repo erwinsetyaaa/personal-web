@@ -1,4 +1,11 @@
+
 {{#> layout currentPage="Home"}}
+
+  {{#if messages.success}}
+  <div class="alert alert-success mx-5 mt-5" role="alert">
+     {{messages.success}}
+  </div>
+  {{/if}}
 
     <main class="main-content">
       <!-- Profile Card -->

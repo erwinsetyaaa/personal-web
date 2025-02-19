@@ -3,6 +3,8 @@ const app = express();
 const hbs = require("hbs");
 const path = require("path");
 const methodOverride = require("method-override");
+const flash = require("express-flash");
+const session = require("express-session");
 
 // const {
 // renderBlog,
@@ -14,26 +16,42 @@ const methodOverride = require("method-override");
 // } = require("./controllers/controller-v1");
 
 const {
+  renderHome,
   renderBlog,
+  authLogout,
   renderBlogDetail,
   deleteBlog,
   renderBlogCreate,
   createBlog,
   renderBlogEdit,
   updateBlog,
+  authLogin,
+  authRegister,
 } = require("./controllers/controller-v2");
 
 const { formatDateToWIB, getRelativeTime } = require("./utils/time");
+
 
 const port = 3000;
 
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "./views"));
 
+// modul apa saja yang kita gunakan dalam express
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("assets"));
 app.use(methodOverride("_method"));
+app.use(flash());
+app.use(session(
+  { 
+    name : "my-session",
+    secret : "askhdnjdohqsq",
+    resave : false,
+    saveUninitialized : true,
+  }
+))
+
 
 hbs.registerPartials(__dirname + "/views/partials", function (err) {});
 
@@ -45,9 +63,24 @@ hbs.registerHelper("formatDateToWIB", formatDateToWIB);
 hbs.registerHelper("getRelativeTime", getRelativeTime);
 
 // HOME
-app.get("/", (req, res) => {
-  res.render("index");
+app.get("/", renderHome);
+
+
+app.get("/login", (req, res) => {
+  res.render("auth-login");
 });
+app.get("/register", (req, res) => {
+  res.render("auth-register");
+});
+
+// 
+app.post("/login",authLogin);
+
+app.get("/logout", authLogout);
+
+
+// 
+app.post("/register", authRegister);
 
 // CONTACT ME
 app.get("/contact", (req, res) => {

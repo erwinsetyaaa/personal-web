@@ -29,13 +29,27 @@ body {
   border-collapse: collapse;
   width: 100%;
 }
-/* .container table tr th {
-  border-style: solid;
+/* Autentification */
+.auth-form {
+  width: 400px;
+  margin: 100px auto;
 }
-.container table tr td {
-  border-style: solid;
-  text-align: center;
-} */
+
+.auth-form h1 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+.auth-form button {
+  text-decoration: none;
+  background-color: limegreen;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
 
 /* NAVBAR */
 nav {
